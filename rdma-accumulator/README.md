@@ -13,21 +13,28 @@
 ## 🛠 环境要求
 
 - 两台支持 Soft‑RoCE 的 Ubuntu 22.04 虚拟机（或真实 RDMA 网卡，如 Mellanox ConnectX 系列）。
+
 - 已安装 RDMA 核心库和开发包：
 
   sudo apt update
+
   sudo apt install -y libibverbs-dev rdma-core
+
 确保 Soft‑RoCE 设备已创建（如 rxe0）且状态为 ACTIVE：
 
-
 sudo modprobe rdma_rxe
+
 sudo rdma link add rxe0 type rxe netdev <你的网卡名>   # 例如 enp0s3
+
 rdma link show   # 应显示 rxe0 ACTIVE
+
 📥 编译
+
 将仓库克隆到两台机器上，进入目录执行：
 
 
 make
+
 编译成功后生成两个可执行文件：
 
 server – 服务端程序
@@ -35,10 +42,12 @@ server – 服务端程序
 client – 客户端程序
 
 🚀 运行
+
 服务端（假设 IP 为 192.168.3.139）：
 
 
 ./server
+
 输出示例：
 
 
